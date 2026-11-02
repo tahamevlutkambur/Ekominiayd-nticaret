@@ -4,22 +4,18 @@ const path = require('path');
 const filePath = path.resolve(__dirname, '../index.src.html');
 let html = fs.readFileSync(filePath, 'utf8');
 
-// 1. Update Title and Meta Tags
-html = html.replace(
-    /<title>.*?<\/title>/,
-    '<title>Yakuplu Tekel Bayi & Gece Açık Market | Ekomini Aydın Ticaret</title>'
-);
+// 1. Clean existing title, description, keywords
+html = html.replace(/<title>[\s\S]*?<\/title>/, '<title>Yakuplu Tekel Bayi & Gece Açık Market | Ekomini Aydın Ticaret</title>');
+html = html.replace(/<meta name="description"[^>]*>\s*/g, '');
+html = html.replace(/<meta name="keywords"[^>]*>\s*/g, '');
 
-const newMetaTags = `    <meta name="description" content="Yakuplu tekel bayi arayanlara Ekomini Aydın Ticaret: Yakuplu Mah. Barbaros Cad. No:57/533 Beylikdüzü adresinde her gün 08:00 - 03:00 açık! Tekel sipariş, meze ve soğuk içecek.">
+const metaBlock = `<meta name="description" content="Yakuplu tekel bayi arayanlara Ekomini Aydın Ticaret: Yakuplu Mah. Barbaros Cad. No:57/533 Beylikdüzü adresinde her gün 08:00 - 03:00 açık! Tekel sipariş, meze ve soğuk içecek.">
     <meta name="keywords" content="yakuplu tekel, yakuplu tekel bayi, yakuplu açık tekel, yakuplu tekel sipariş, yakuplu gece açık tekel, yakuplu nöbetçi tekel, ihlas marmara evleri tekel, beylikdüzü tekel, ekomini aydın ticaret">`;
 
-html = html.replace(
-    /<meta name="description" content="[^"]*">/,
-    newMetaTags
-);
+html = html.replace('<!-- SEO Primary Tags -->\n    <title>Yakuplu Tekel Bayi & Gece Açık Market | Ekomini Aydın Ticaret</title>', `<!-- SEO Primary Tags -->\n    <title>Yakuplu Tekel Bayi & Gece Açık Market | Ekomini Aydın Ticaret</title>\n    ${metaBlock}`);
 
-// 2. Update JSON-LD Schema
-const updatedSchema = `    <script type="application/ld+json">
+// 2. Clean JSON-LD Schema
+const updatedSchema = `<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -124,7 +120,7 @@ html = html.replace(
     `<h1 class="hero-title">Yakuplu Tekel Bayi & Ekomini Market <br><span class="highlight">Her Gün 08:00–03:00 Açık</span></h1>`
 );
 
-// 4. Update Nav Menu with direct links to SEO Landing Pages
+// 4. Update Nav Menu
 const newNavMenu = `<ul class="nav-menu">
                 <li><a href="#urunler" class="nav-link">Ürünler</a></li>
                 <li><a href="/yakuplu-tekel" class="nav-link">Yakuplu Tekel</a></li>
@@ -137,7 +133,7 @@ const newNavMenu = `<ul class="nav-menu">
 
 html = html.replace(/<ul class="nav-menu">[\s\S]*?<\/ul>/, newNavMenu);
 
-// 5. Update Footer Links with all 6 SEO Landing Pages
+// 5. Update Footer Links
 const newFooterLinks = `<div>
                 <h3 class="footer-title">Yakuplu Tekel & Hizmetler</h3>
                 <ul class="footer-links">
@@ -151,15 +147,15 @@ const newFooterLinks = `<div>
             </div>`;
 
 html = html.replace(
-    /<div>\s*<h3 class="footer-title">Hızlı Bağlantılar<\/h3>[\s\S]*?<\/ul>\s*<\/div>/,
+    /<div>\s*<h3 class="footer-title">.*?<\/h3>[\s\S]*?<\/ul>\s*<\/div>/,
     newFooterLinks
 );
 
 // Save index.src.html
 fs.writeFileSync(filePath, html, 'utf8');
 
-// Copy directly to index.html (UNOBFUSCATED, CLEAN HTML FOR GOOGLEBOT!)
+// Copy directly to index.html
 const destPath = path.resolve(__dirname, '../index.html');
 fs.writeFileSync(destPath, html, 'utf8');
 
-console.log('[Updated] index.src.html & index.html updated successfully with pristine SEO attributes!');
+console.log('[Updated] index.src.html & index.html cleanly updated!');
