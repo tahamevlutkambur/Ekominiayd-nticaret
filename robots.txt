@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ekominiaydinticaret.com/sitemap.xml
+Sitemap: https://www.xn--ekominiaydnticaret-n0c.com/sitemap.xml
