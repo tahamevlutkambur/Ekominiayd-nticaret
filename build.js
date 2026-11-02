@@ -12,9 +12,11 @@ try {
     console.error('[Build Error] Failed during page generation:', e.message);
 }
 
-// 2. Prepare dist/ folder
-const deployDir = path.join(__dirname, 'dist');
-fs.mkdirSync(deployDir, { recursive: true });
+// 2. Prepare both dist/ and public/ folders for 100% Vercel compatibility
+const targetDirs = [
+    path.join(__dirname, 'dist'),
+    path.join(__dirname, 'public')
+];
 
 const filesToCopy = [
     'index.html',
@@ -32,19 +34,23 @@ const filesToCopy = [
     'CNAME'
 ];
 
-for (const file of filesToCopy) {
-    const src = path.join(__dirname, file);
-    if (fs.existsSync(src)) {
-        fs.copyFileSync(src, path.join(deployDir, file));
+for (const deployDir of targetDirs) {
+    fs.mkdirSync(deployDir, { recursive: true });
+
+    for (const file of filesToCopy) {
+        const src = path.join(__dirname, file);
+        if (fs.existsSync(src)) {
+            fs.copyFileSync(src, path.join(deployDir, file));
+        }
+    }
+
+    // Copy images
+    const imgSource = path.join(__dirname, 'images');
+    const imgDest = path.join(deployDir, 'images');
+    if (fs.existsSync(imgSource)) {
+        fs.cpSync(imgSource, imgDest, { recursive: true });
     }
 }
 
-// Copy images
-const imgSource = path.join(__dirname, 'images');
-const imgDest = path.join(deployDir, 'images');
-if (fs.existsSync(imgSource)) {
-    fs.cpSync(imgSource, imgDest, { recursive: true });
-}
-
-console.log('[Build] Clean static build completed successfully in dist/');
+console.log('[Build] Clean static build completed successfully in dist/ and public/');
 console.log('[Build] Ready for Vercel, Cloudflare Pages, or static hosting.');
