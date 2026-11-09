@@ -1216,12 +1216,20 @@ function renderPage(config) {
 </html>`;
 }
 
-// Generate all pages
+// Generate all pages (Both .html and folder/index.html for universal 0-config clean URLs)
 PAGES_CONFIG.forEach(cfg => {
     const html = renderPage(cfg);
-    const dest = path.join(ROOT_DIR, cfg.filename);
-    fs.writeFileSync(dest, html, 'utf8');
-    console.log(`[Generated] ${cfg.filename} (${cfg.title})`);
+    
+    // 1. Write file as .html
+    const destHtml = path.join(ROOT_DIR, cfg.filename);
+    fs.writeFileSync(destHtml, html, 'utf8');
+
+    // 2. Write folder/index.html (directory routing guarantees /slug NEVER 404s on any host!)
+    const destDir = path.join(ROOT_DIR, cfg.slug);
+    fs.mkdirSync(destDir, { recursive: true });
+    fs.writeFileSync(path.join(destDir, 'index.html'), html, 'utf8');
+
+    console.log(`[Generated] ${cfg.filename} & ${cfg.slug}/index.html (${cfg.title})`);
 });
 
 console.log('[Success] All 6 SEO landing pages generated cleanly for ekominiaydinticaret.com.tr!');

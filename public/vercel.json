@@ -1,0 +1,55 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/yakuplu-tekel", "destination": "/yakuplu-tekel.html" },
+    { "source": "/yakuplu-acik-tekel", "destination": "/yakuplu-acik-tekel.html" },
+    { "source": "/yakuplu-tekel-siparis", "destination": "/yakuplu-tekel-siparis.html" },
+    { "source": "/yakuplu-nobetci-tekel", "destination": "/yakuplu-nobetci-tekel.html" },
+    { "source": "/beylikduzu-acik-tekel", "destination": "/beylikduzu-acik-tekel.html" },
+    { "source": "/beylikduzu-gece-acik-market", "destination": "/beylikduzu-gece-acik-market.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js|png|jpg|jpeg|webp|svg|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ]
+}
