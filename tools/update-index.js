@@ -150,8 +150,8 @@ html = html.replace(
 // 5. Navigation Menu
 const newNavMenu = `<ul class="nav-menu">
                 <li><a href="#urunler" class="nav-link">Ürünler</a></li>
-                <li><a href="/yakuplu-tekel" class="nav-link">Yakuplu Tekel</a></li>
-                <li><a href="/yakuplu-tekel-siparis" class="nav-link">Tekel Sipariş</a></li>
+                <li><a href="/yakuplu-tekel.html" class="nav-link">Yakuplu Tekel</a></li>
+                <li><a href="/yakuplu-tekel-siparis.html" class="nav-link">Tekel Sipariş</a></li>
                 <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
                 <li><a href="#neden-biz" class="nav-link">Neden Biz?</a></li>
                 <li><a href="#iletisim" class="nav-link">İletişim</a></li>
@@ -171,7 +171,7 @@ const yakupluSection = `    <!-- Yakuplu Tekel & Hizmet Rehberi Bölümü (Googl
             </div>
 
             <div class="yakuplu-grid animate-reveal">
-                <a href="/yakuplu-tekel" class="yakuplu-card">
+                <a href="/yakuplu-tekel.html" class="yakuplu-card">
                     <div class="yakuplu-card-badge">Ana Bayi</div>
                     <div class="yakuplu-card-icon">🏪</div>
                     <h3>Yakuplu Tekel Bayi</h3>
@@ -179,7 +179,7 @@ const yakupluSection = `    <!-- Yakuplu Tekel & Hizmet Rehberi Bölümü (Googl
                     <span class="yakuplu-card-link">Mağaza Detayları &rarr;</span>
                 </a>
 
-                <a href="/yakuplu-acik-tekel" class="yakuplu-card">
+                <a href="/yakuplu-acik-tekel.html" class="yakuplu-card">
                     <div class="yakuplu-card-badge open-badge">08:00 - 03:00 Açık</div>
                     <div class="yakuplu-card-icon">⚡</div>
                     <h3>Yakuplu Açık Tekel</h3>
@@ -187,7 +187,7 @@ const yakupluSection = `    <!-- Yakuplu Tekel & Hizmet Rehberi Bölümü (Googl
                     <span class="yakuplu-card-link">Açık Saatleri Gör &rarr;</span>
                 </a>
 
-                <a href="/yakuplu-tekel-siparis" class="yakuplu-card">
+                <a href="/yakuplu-tekel-siparis.html" class="yakuplu-card">
                     <div class="yakuplu-card-badge delivery-badge">Eve Servis</div>
                     <div class="yakuplu-card-icon">🛵</div>
                     <h3>Yakuplu Tekel Sipariş</h3>
@@ -195,7 +195,7 @@ const yakupluSection = `    <!-- Yakuplu Tekel & Hizmet Rehberi Bölümü (Googl
                     <span class="yakuplu-card-link">Sipariş Hattına Git &rarr;</span>
                 </a>
 
-                <a href="/yakuplu-nobetci-tekel" class="yakuplu-card">
+                <a href="/yakuplu-nobetci-tekel.html" class="yakuplu-card">
                     <div class="yakuplu-card-badge">Nöbetçi Market</div>
                     <div class="yakuplu-card-icon">🌙</div>
                     <h3>Yakuplu Nöbetçi Tekel</h3>
@@ -212,18 +212,24 @@ if (!html.includes('id="yakuplu-tekel-hizmetleri"')) {
         /<section id="neden-biz"/,
         yakupluSection + '\n    <section id="neden-biz"'
     );
+} else {
+    // If section already exists, replace it cleanly with updated .html links
+    html = html.replace(
+        /<section id="yakuplu-tekel-hizmetleri"[\s\S]*?<\/section>/,
+        yakupluSection.trim()
+    );
 }
 
 // 7. Footer Links
 const newFooterLinks = `<div>
                 <h3 class="footer-title">Yakuplu Tekel & Hizmetler</h3>
                 <ul class="footer-links">
-                    <li><a href="/yakuplu-tekel">Yakuplu Tekel Bayi</a></li>
-                    <li><a href="/yakuplu-acik-tekel">Yakuplu Açık Tekel</a></li>
-                    <li><a href="/yakuplu-tekel-siparis">Yakuplu Tekel Sipariş</a></li>
-                    <li><a href="/yakuplu-nobetci-tekel">Yakuplu Nöbetçi Tekel</a></li>
-                    <li><a href="/beylikduzu-acik-tekel">Beylikdüzü Açık Tekel</a></li>
-                    <li><a href="/beylikduzu-gece-acik-market">Beylikdüzü Gece Market</a></li>
+                    <li><a href="/yakuplu-tekel.html">Yakuplu Tekel Bayi</a></li>
+                    <li><a href="/yakuplu-acik-tekel.html">Yakuplu Açık Tekel</a></li>
+                    <li><a href="/yakuplu-tekel-siparis.html">Yakuplu Tekel Sipariş</a></li>
+                    <li><a href="/yakuplu-nobetci-tekel.html">Yakuplu Nöbetçi Tekel</a></li>
+                    <li><a href="/beylikduzu-acik-tekel.html">Beylikdüzü Açık Tekel</a></li>
+                    <li><a href="/beylikduzu-gece-acik-market.html">Beylikdüzü Gece Market</a></li>
                 </ul>
             </div>`;
 

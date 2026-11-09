@@ -32,7 +32,9 @@ const filesToCopy = [
     'robots.txt',
     'sitemap.xml',
     'CNAME',
-    'vercel.json'
+    'vercel.json',
+    '.htaccess',
+    '404.html'
 ];
 
 const slugDirs = [

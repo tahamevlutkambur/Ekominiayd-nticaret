@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa Yönlendiriliyor | Ekomini Aydın Ticaret</title>
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+            var routes = {
+                'yakuplu-tekel': '/yakuplu-tekel.html',
+                'yakuplu-acik-tekel': '/yakuplu-acik-tekel.html',
+                'yakuplu-tekel-siparis': '/yakuplu-tekel-siparis.html',
+                'yakuplu-nobetci-tekel': '/yakuplu-nobetci-tekel.html',
+                'beylikduzu-acik-tekel': '/beylikduzu-acik-tekel.html',
+                'beylikduzu-gece-acik-market': '/beylikduzu-gece-acik-market.html'
+            };
+            if (routes[path]) {
+                window.location.replace(routes[path] + window.location.search + window.location.hash);
+            }
+        })();
+    </script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .icon { font-size: 64px; margin-bottom: 20px; }
+        h1 { font-size: 26px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+        p { color: #94a3b8; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+        .links { display: flex; flex-direction: column; gap: 12px; }
+        .btn {
+            display: inline-block;
+            background: #f59e0b;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+        .btn:hover { background: #d97706; transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            color: #38bdf8;
+            border: 1px solid rgba(56,189,248,0.3);
+        }
+        .btn-outline:hover { background: rgba(56,189,248,0.1); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">🏪</div>
+        <h1>Ekomini Aydın Ticaret</h1>
+        <p>Aradığınız sayfa taşınmış veya adresi değişmiş olabilir. Aşağıdaki bağlantılardan doğrudan ulaşabilirsiniz:</p>
+        <div class="links">
+            <a href="/" class="btn">🏠 Ana Sayfaya Git</a>
+            <a href="/yakuplu-tekel.html" class="btn btn-outline">📍 Yakuplu Tekel Bayi</a>
+            <a href="/yakuplu-tekel-siparis.html" class="btn btn-outline">🛵 Yakuplu Tekel Sipariş</a>
+            <a href="tel:+905398163936" class="btn btn-outline">📞 0539 816 39 36 (Hemen Ara)</a>
+        </div>
+    </div>
+</body>
+</html>
