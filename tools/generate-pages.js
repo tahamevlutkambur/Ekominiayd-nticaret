@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
+const BASE_URL = 'https://ekominiaydinticaret.com.tr';
 
 // Helper to escape HTML if needed
 function esc(str) {
@@ -14,12 +15,12 @@ const PAGES_CONFIG = [
         slug: 'yakuplu-tekel',
         title: 'Yakuplu Tekel Bayi & Gece Açık Market | Ekomini Aydın Ticaret',
         h1: 'Yakuplu Tekel Bayi ve Mahalle Marketi',
-        badge: 'Yakuplu Tekel · Barbaros Caddesi',
+        badge: '📍 Yakuplu Tekel · Barbaros Caddesi No:57/533',
         metaTitle: 'Yakuplu Tekel Bayi & Gece Açık Market | Ekomini Aydın Ticaret',
-        metaDesc: 'Yakuplu tekel bayi arayanlara Ekomini Aydın Ticaret: Yakuplu Barbaros Cad. No:57/533 Beylikdüzü adresinde her gün 08:00 - 03:00 açık! Tekel sipariş, soğuk bira, viski, meze.',
-        canonical: 'https://www.ekominiaydinticaret.com/yakuplu-tekel',
-        lead: 'Yakuplu Mahallesi ve Barbaros Caddesi çevresinde en zengin tekel ve market çeşitleriyle her gün 08:00–03:00 saatleri arasında kesintisiz hizmetinizdeyiz. Yerli ve yabancı orijinal bandrollü alkollü içecekler, soğuk biralar, taze mezeler ve market ürünleri tek adreste.',
-        focusKeywords: ['Yakuplu tekel', 'Yakuplu tekel bayi', 'Yakuplu açık tekel', 'Yakuplu en yakın tekel', 'Ekomini Aydın Ticaret Yakuplu'],
+        metaDesc: 'Yakuplu tekel bayi Ekomini Aydın Ticaret: Barbaros Caddesi No:57/533 Beylikdüzü adresinde her gün 08:00 - 03:00 açık! Soğuk bira, viski, rakı, meze ve tekel sipariş.',
+        canonical: `${BASE_URL}/yakuplu-tekel`,
+        lead: 'Beylikdüzü Yakuplu Mahallesi ve Barbaros Caddesi çevresinde en zengin tekel ve market çeşitleriyle haftanın her günü 08:00–03:00 saatleri arasında kesintisiz hizmetinizdeyiz. Orijinal bandrollü alkollü içecekler, buz gibi soğuk biralar, taze mezeler ve zengin şarküteri reyonlarımızla mahallenizin en güvenilir tekel bayisiyiz.',
+        focusKeywords: ['Yakuplu tekel', 'Yakuplu tekel bayi', 'Yakuplu açık tekel', 'Yakuplu en yakın tekel', 'Ekomini Aydın Ticaret Yakuplu', 'Yakuplu tekel telefon'],
         sections: [
             {
                 title: 'Yakuplu Tekel Bayi Olarak Neler Sunuyoruz?',
@@ -33,7 +34,7 @@ const PAGES_CONFIG = [
                     <div class="feature-item">
                         <div class="feature-icon">🥃</div>
                         <strong>Premium Alkol Koleksiyonu</strong>
-                        <p>Viski, rakı, votka, cin, şarap ve likör çeşitlerinde %100 orijinal ve bandrollü ürünler.</p>
+                        <p>Viski, rakı, votka, cin, şarap ve likör çeşitlerinde %100 orijinal ve resmi bandrollü ürünler.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">🧀</div>
@@ -51,8 +52,8 @@ const PAGES_CONFIG = [
                 title: 'Yakuplu ve Barbaros Caddesi Hizmet Bölgelerimiz',
                 content: `<p>Mağazamız Beylikdüzü Yakuplu Mahallesi'nin kalbinde yer almaktadır. Barbaros Caddesi No:57/533 adresinde bulunan işletmemiz şu lokasyonlara yürüme ve kısa sürüş mesafesindedir:</p>
                 <ul class="check-list">
-                    <li><strong>İhlas Marmara Evleri (1., 2. ve 3. Kısım):</strong> Sadece 2-3 dakika mesafede hızlı ulaşım ve sipariş.</li>
-                    <li><strong>Barbaros Caddesi Esnaf & Konutları:</strong> Cadde üzerindeki ana arterde araç parkı kolaylığı.</li>
+                    <li><strong>İhlas Marmara Evleri (1., 2. ve 3. Kısım):</strong> Sadece 2-3 dakika mesafede hızlı ulaşım ve sipariş teslimatı.</li>
+                    <li><strong>Barbaros Caddesi Esnaf & Konutları:</strong> Cadde üzerindeki ana arterde kolay araç parkı.</li>
                     <li><strong>Eston Deniz & Marina Bölgesi:</strong> Sahil yolu üzerinden 5 dakikada kolay erişim.</li>
                     <li><strong>Hürriyet Bulvarı & Yakuplu Merkez:</strong> Yakuplu merkezden direkt düz hat bağlantısı.</li>
                     <li><strong>Yakuplu Kent Ormanı Çevresi:</strong> Piknik ve akşam organizasyonları için eksiksiz alışveriş.</li>
@@ -70,7 +71,7 @@ const PAGES_CONFIG = [
             },
             {
                 q: 'Yakuplu tekel eve servis veya sipariş var mı?',
-                a: 'Evet! +90 539 816 39 36 telefon numaramız veya WhatsApp hattımız üzerinden Yakuplu ve çevre bölgeler için stok sorabilir ve sipariş verebilirsiniz.'
+                a: 'Evet! +90 539 816 39 36 telefon numaramız veya WhatsApp hattımız üzerinden Yakuplu ve çevre bölgeler için stok sorabilir ve tekel siparişi verebilirsiniz.'
             },
             {
                 q: 'Ürünleriniz orijinal ve bandrollü mü?',
@@ -90,7 +91,7 @@ const PAGES_CONFIG = [
         badge: '🟢 Şu An Açık · Her Gün 08:00 – 03:00',
         metaTitle: 'Yakuplu Açık Tekel | Gece 03:00\'e Kadar Açık Tekel Bayi',
         metaDesc: 'Yakuplu\'da şu an açık tekel arayanlar için Ekomini Aydın Ticaret: Her gün 08:00 - 03:00 açık! Soğuk içecekler, tekel ürünleri ve meze çeşitleri. Hemen tıkla, ara!',
-        canonical: 'https://www.ekominiaydinticaret.com/yakuplu-acik-tekel',
+        canonical: `${BASE_URL}/yakuplu-acik-tekel`,
         lead: 'Yakuplu ve Beylikdüzü çevresinde "Şu an açık tekel nerede var?" diye düşünüyorsanız, Ekomini Aydın Ticaret haftanın her günü gece 03:00\'e kadar kapılarını açık tutuyor. Gece geç saatte de aradığınız tüm tekel ve market ihtiyaçlarınızı temin edebilirsiniz.',
         focusKeywords: ['Yakuplu açık tekel', 'Yakuplu şu an açık tekel', 'Yakuplu gece açık tekel', 'Yakuplu tekel açık mı', 'Beylikdüzü açık tekel'],
         sections: [
@@ -139,7 +140,7 @@ const PAGES_CONFIG = [
         badge: '🛵 Hızlı Teslimat · WhatsApp & Telefon Sipariş',
         metaTitle: 'Yakuplu Tekel Sipariş & Eve Servis | Ekomini Aydın Ticaret',
         metaDesc: 'Yakuplu tekel sipariş ve paket servis: İhlas Marmara Evleri, Barbaros Caddesi ve çevre mahallelere hızlı teslimat! Hemen arayın veya WhatsApp\'tan sipariş verin.',
-        canonical: 'https://www.ekominiaydinticaret.com/yakuplu-tekel-siparis',
+        canonical: `${BASE_URL}/yakuplu-tekel-siparis`,
         lead: 'Yakuplu Mahallesi ve çevresinde evinizden çıkmadan tekel, soğuk içecek, meze ve market siparişi verin. Hızlı kurye teslimatı ve kapıda ödeme kolaylığıyla Ekomini Aydın Ticaret bir telefon uzağınızda!',
         focusKeywords: ['Yakuplu tekel sipariş', 'Yakuplu tekel eve servis', 'Yakuplu tekel paket servis', 'Yakuplu tekel kurye', 'Yakuplu eve içki servisi'],
         sections: [
@@ -168,7 +169,7 @@ const PAGES_CONFIG = [
                 content: `<p>Ekomini Aydın Ticaret kurye ağımız Yakuplu genelinde geniş bir dağıtım bölgesine sahiptir:</p>
                 <ul class="check-list">
                     <li><strong>İhlas Marmara Evleri 1., 2. ve 3. Kısım:</strong> En hızlı teslimat bölgelerimizden biri.</li>
-                    <li><strong>Barbaros Caddesi ve Yan Sokakları:</strong> Dakikalar içinde teslim.</li>
+                    <li><strong>Barbaros Caddesi ve Yan Sokakları:</strong> Dakikalar içinde teslimat.</li>
                     <li><strong>Eston Deniz & Sahil Siteleri:</strong> Hızlı rota ile soğukluğu bozulmadan kapınızda.</li>
                     <li><strong>Hürriyet Bulvarı ve Yakuplu Kent Konutları:</strong> Güvenli ve temassız teslimat seçenekleri.</li>
                 </ul>`
@@ -201,7 +202,7 @@ const PAGES_CONFIG = [
         badge: '🌙 Gece 03:00\'e Kadar Nöbetçi Hizmet',
         metaTitle: 'Yakuplu Nöbetçi Tekel & Gece Tekel | Ekomini Aydın Ticaret',
         metaDesc: 'Yakuplu nöbetçi tekel arayanlara Ekomini Aydın Ticaret: Her gece 03:00\'e kadar açık! Orijinal alkollü içecekler, soğuk bira, meze ve market ürünleri. 0539 816 39 36.',
-        canonical: 'https://www.ekominiaydinticaret.com/yakuplu-nobetci-tekel',
+        canonical: `${BASE_URL}/yakuplu-nobetci-tekel`,
         lead: 'Gece geç saatlerde Yakuplu\'da nöbetçi tekel veya açık market bulmak artık sorun değil. Ekomini Aydın Ticaret, zengin ürün yelpazesiyle her gece 03:00\'e kadar nöbetçi tekel vazifesi görüyor.',
         focusKeywords: ['Yakuplu nöbetçi tekel', 'Yakuplu gece tekel', 'Yakuplu 7/24 tekel', 'Yakuplu nöbetçi market', 'Beylikdüzü nöbetçi tekel'],
         sections: [
@@ -255,7 +256,7 @@ const PAGES_CONFIG = [
         badge: '📍 Beylikdüzü / Yakuplu Tekel',
         metaTitle: 'Beylikdüzü Açık Tekel Bayi | Yakuplu Ekomini Aydın Ticaret',
         metaDesc: 'Beylikdüzü\'nde açık tekel bayi arıyorsanız Ekomini Aydın Ticaret her gün 08:00 - 03:00 açık! Geniş tekel reyonu, Barbaros Cad. No:57/533 Yakuplu.',
-        canonical: 'https://www.ekominiaydinticaret.com/beylikduzu-acik-tekel',
+        canonical: `${BASE_URL}/beylikduzu-acik-tekel`,
         lead: 'Beylikdüzü genelinde açık tekel bayi arayanlar için Yakuplu Mahallesi Barbaros Caddesi\'nde bulunan Ekomini Aydın Ticaret, geniş ürün çeşitliliği ve gece 03:00\'e kadar açık çalışma saatleriyle hizmet veriyor.',
         focusKeywords: ['Beylikdüzü açık tekel', 'Beylikdüzü açık tekel bayi', 'Beylikdüzü tekel bayi', 'Yakuplu açık tekel'],
         sections: [
@@ -291,7 +292,7 @@ const PAGES_CONFIG = [
         badge: '🛒 Gece Açık Süpermarket & Tekel',
         metaTitle: 'Beylikdüzü Gece Açık Market | Ekomini Aydın Ticaret (03:00\'e Kadar)',
         metaDesc: 'Beylikdüzü Yakuplu\'da gece açık market: Ekomini Aydın Ticaret her gün gece 03:00\'e kadar açık! Temel gıda, şarküteri, soğuk meze ve tekel reyonu.',
-        canonical: 'https://www.ekominiaydinticaret.com/beylikduzu-gece-acik-market',
+        canonical: `${BASE_URL}/beylikduzu-gece-acik-market`,
         lead: 'Beylikdüzü Yakuplu\'da gece açık süpermarket ve bakkal arıyorsanız Ekomini Aydın Ticaret her gün sabah 08:00\'den gece 03:00\'e kadar kesintisiz açık. Gıda, atıştırmalık, soğuk içecek, süt ürünleri ve şarküteri reyonlarımızla hizmetinizdeyiz.',
         focusKeywords: ['Beylikdüzü gece açık market', 'Yakuplu gece açık market', 'Beylikdüzü nöbetçi market', 'Yakuplu bakkal'],
         sections: [
@@ -393,13 +394,13 @@ function renderPage(config) {
     <meta property="og:description" content="${esc(config.metaDesc)}">
     <meta property="og:url" content="${config.canonical}">
     <meta property="og:site_name" content="Ekomini Aydın Ticaret">
-    <meta property="og:image" content="https://www.ekominiaydinticaret.com/images/aydinekominidaire.png">
+    <meta property="og:image" content="${BASE_URL}/images/aydinekominidaire.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(config.metaTitle)}">
     <meta name="twitter:description" content="${esc(config.metaDesc)}">
-    <meta name="twitter:image" content="https://www.ekominiaydinticaret.com/images/aydinekominidaire.png">
+    <meta name="twitter:image" content="${BASE_URL}/images/aydinekominidaire.png">
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -413,13 +414,13 @@ function renderPage(config) {
       "@graph": [
         {
           "@type": ["LiquorStore", "ConvenienceStore", "GroceryStore"],
-          "@id": "https://www.ekominiaydinticaret.com/#store",
+          "@id": "${BASE_URL}/#store",
           "name": "Ekomini Aydın Ticaret - Yakuplu Tekel Bayi",
-          "alternateName": ["Yakuplu Tekel", "Yakuplu Tekel Bayi", "Aydın Ticaret Yakuplu"],
+          "alternateName": ["Yakuplu Tekel", "Yakuplu Tekel Bayi", "Aydın Ticaret Yakuplu", "Yakuplu Açık Tekel", "Yakuplu Nöbetçi Tekel"],
           "url": "${config.canonical}",
           "telephone": "+905398163936",
           "priceRange": "₺₺",
-          "image": "https://www.ekominiaydinticaret.com/images/aydinekominidaire.png",
+          "image": "${BASE_URL}/images/aydinekominidaire.png",
           "hasMap": "https://maps.google.com/?q=Yakuplu+Mahallesi,+Barbaros+Caddesi+No:57/533,+Beylikdüzü/İstanbul",
           "paymentAccepted": "Cash, Credit Card, Contactless",
           "currenciesAccepted": "TRY",
@@ -458,7 +459,7 @@ function renderPage(config) {
               "@type": "ListItem",
               "position": 1,
               "name": "Ana Sayfa",
-              "item": "https://www.ekominiaydinticaret.com/"
+              "item": "${BASE_URL}/"
             },
             {
               "@type": "ListItem",
@@ -1223,4 +1224,4 @@ PAGES_CONFIG.forEach(cfg => {
     console.log(`[Generated] ${cfg.filename} (${cfg.title})`);
 });
 
-console.log('[Success] All 6 SEO landing pages generated cleanly with UTF-8 encoding!');
+console.log('[Success] All 6 SEO landing pages generated cleanly for ekominiaydinticaret.com.tr!');

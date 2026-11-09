@@ -3,6 +3,14 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/yakuplu-tekel", "destination": "/yakuplu-tekel.html" },
+    { "source": "/yakuplu-acik-tekel", "destination": "/yakuplu-acik-tekel.html" },
+    { "source": "/yakuplu-tekel-siparis", "destination": "/yakuplu-tekel-siparis.html" },
+    { "source": "/yakuplu-nobetci-tekel", "destination": "/yakuplu-nobetci-tekel.html" },
+    { "source": "/beylikduzu-acik-tekel", "destination": "/beylikduzu-acik-tekel.html" },
+    { "source": "/beylikduzu-gece-acik-market", "destination": "/beylikduzu-gece-acik-market.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
